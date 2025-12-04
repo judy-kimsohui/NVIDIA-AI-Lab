@@ -1,0 +1,159 @@
+:root {
+    --bg-color: #121212;
+    --calculator-bg: #1e1e1e;
+    --display-color: #ffffff;
+    --btn-bg: #2d2d2d;
+    --btn-hover: #3d3d3d;
+    --btn-text: #ffffff;
+    --operator-bg: #ff9f0a;
+    --operator-hover: #ffb03b;
+    --function-bg: #a5a5a5;
+    --function-hover: #d4d4d2;
+    --function-text: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: var(--calculator-bg);
+    width: 350px;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.display {
+    background-color: transparent;
+    color: var(--display-color);
+    text-align: right;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 120px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.previous-operand {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    min-height: 1.5rem;
+}
+
+.current-operand {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn.operator {
+    background-color: var(--operator-bg);
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.btn.operator:hover {
+    background-color: var(--operator-hover);
+}
+
+.btn.function {
+    background-color: var(--function-bg);
+    color: var(--function-text);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.btn.function:hover {
+    background-color: var(--function-hover);
+}
+
+.btn.zero {
+    grid-column: span 2;
+    width: 100%;
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding-left: 25px;
+}
+
+/* Glassmorphism effect for a modern touch */
+.calculator {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 400px) {
+    .calculator {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        justify-content: flex-end;
+        padding-bottom: 40px;
+    }
+
+    .btn {
+        width: 18vw;
+        height: 18vw;
+        max-width: 75px;
+        max-height: 75px;
+    }
+}
